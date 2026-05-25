@@ -3,17 +3,25 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref, watch,computed } from 'vue'
 import * as echarts from 'echarts'
 import { expenses } from '@/data/expenses/index'
+import { useExpenses } from '@/composables/useExpenses'
+
+const {
+  filteredExpenses
+} = useExpenses()
 
 const chartRef = ref<HTMLDivElement | null>(null)
 let chartInstance: echarts.ECharts | null = null
 
-const chartData = expenses.slice().sort((a, b) => a.dateKey.localeCompare(b.dateKey))
-
-const xData = chartData.map((item) => item.dateKey)
-const yData = chartData.map((item) => item.total)
+const chartData = computed(() =>
+  filteredExpenses.value
+    .slice()
+    .sort((a, b) => a.dateKey.localeCompare(b.dateKey))
+)
+const xData = computed(() => chartData.value.map((item) => item.dateKey))
+const yData = computed(() => chartData.value.map((item) => item.total))
 
 const getOption = () => ({
   tooltip: {
@@ -21,7 +29,11 @@ const getOption = () => ({
   },
   xAxis: {
     type: 'category',
-    data: xData,
+    data: xData.value,
+     axisLabel: {
+    interval: 0,
+    rotate: 45,
+    }
   },
   yAxis: {
     type: 'value',
@@ -30,7 +42,7 @@ const getOption = () => ({
     {
       name: 'Total Expense',
       type: 'line',
-      data: yData,
+      data: yData.value,
       smooth: true,
       lineStyle: {
         width: 3,
@@ -59,10 +71,15 @@ onMounted(() => {
 })
 
 watch(
-  () => expenses,
+  [xData, yData],
   () => {
-    chartInstance?.setOption(getOption())
+    if (!chartInstance) return
+    console.log(yData)
+    chartInstance.setOption(getOption())
   },
+  {
+    deep: true
+  }
 )
 </script>
 

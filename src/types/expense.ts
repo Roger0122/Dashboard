@@ -14,3 +14,11 @@ export interface MonthlyExpense {
     updateAt?: string
   }
 }
+
+export const CATEGORY_LABEL = {
+  food: '食物',
+  living: '生活',
+  entertainment: '娛樂',
+  transport: '交通',
+  other: '其他'
+}

@@ -1,32 +1,34 @@
 import { ref, computed } from 'vue'
-import type { MonthlyExpense } from '@/types/expense'
-import { getAllExpenses } from '@/services/expenseService'
+import { expenses } from '@/data/expenses'
 
-const expenses = ref<MonthlyExpense[]>(getAllExpenses())
+// import type { MonthlyExpense } from '@/types/expense'
+// import { getAllExpenses } from '@/services/expenseService'
+
+
+export const selectedYear = ref<number | 'all'>('all')
+
+// 所有可選年份
+const availableYears = computed(() => {
+  const years = new Set(expenses.map(item => item.year))
+
+  return [...years].sort((a, b) => b - a)
+})
+
+// 篩選後資料
+const filteredExpenses = computed(() => {
+  if (selectedYear.value === 'all') {
+    return expenses
+  }
+
+  return expenses.filter(
+    item => item.year === selectedYear.value
+  )
+})
 
 export function useExpenses() {
-  //  Total Yearly
-  const totalAll = computed(() => expenses.value.reduce((sum, e) => sum + e.total, 0))
-  // sort by date
-  const sortedExpenses = computed(() =>
-    [...expenses.value].sort((a, b) => a.dateKey.localeCompare(b.dateKey)),
-  )
-  // category aggregation
-  const categorySummary = computed(() => {
-    const result: Record<string, number> = {}
-
-    expenses.value.forEach((e) => {
-      Object.entries(e.breakdown).forEach(([Key, value]) => {
-        result[Key] = (result[Key] || 0) + (value || 0)
-      })
-    })
-    return result
-  })
-
   return {
-    expenses,
-    totalAll,
-    sortedExpenses,
-    categorySummary,
+    selectedYear,
+    availableYears,
+    filteredExpenses
   }
 }

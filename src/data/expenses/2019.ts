@@ -1,0 +1,208 @@
+import type { MonthlyExpense } from '@/types/expense'
+
+export const expenses2019: MonthlyExpense[] = [
+  {
+    dateKey: '2019-01',
+    year: 2019,
+    month: 1,
+    total: 10754,
+    breakdown: {
+      food: 2028,
+      living: 3975,
+      entertainment: 4751,
+      transport: 0,
+      stay: 0,
+      other: 0,
+    },
+    meta: {
+      days: 31,
+    },
+  },
+  {
+    dateKey: '2019-02',
+    year: 2019,
+    month: 2,
+    total: 10981,
+    breakdown: {
+      food: 2206,
+      living: 4445,
+      entertainment: 4030,
+      transport: 30,
+      stay: 0,
+      other: 0,
+    },
+    meta: {
+      days: 28,
+    },
+  },
+  {
+    dateKey: '2019-03',
+    year: 2019,
+    month: 3,
+    total: 13598,
+    breakdown: {
+      food: 3710,
+      living: 5867,
+      entertainment: 2721,
+      transport: 1300,
+      stay: 0,
+      other: 0,
+    },
+    meta: {
+      days: 31,
+    },
+  },
+  {
+    dateKey: '2019-04',
+    year: 2019,
+    month: 4,
+    total: 13553,
+    breakdown: {
+      food: 4024,
+      living: 7504,
+      entertainment: 1525,
+      transport: 500,
+      stay: 0,
+      other: 0,
+    },
+    meta: {
+      days: 30,
+    },
+  },
+  {
+    dateKey: '2019-05',
+    year: 2019,
+    month: 5,
+    total: 17576,
+    breakdown: {
+      food: 3491,
+      living: 6636,
+      entertainment: 6749,
+      transport: 700,
+      stay: 0,
+      other: 0,
+    },
+    meta: {
+      days: 31,
+    },
+  },
+  {
+    dateKey: '2019-06',
+    year: 2019,
+    month: 6,
+    total: 14481,
+    breakdown: {
+      food: 3242,
+      living: 4722,
+      entertainment: 6417,
+      transport: 100,
+      stay: 0,
+      other: 0,
+    },
+    meta: {
+      days: 31,
+    },
+  },
+  {
+    dateKey: '2019-07',
+    year: 2019,
+    month: 7,
+    total: 8834,
+    breakdown: {
+      food: 2570,
+      living: 4394,
+      entertainment: 630,
+      transport: 1240,
+      stay: 0,
+      other: 0,
+    },
+    meta: {
+      days: 31,
+    },
+  },
+  {
+    dateKey: '2019-08',
+    year: 2019,
+    month: 8,
+    total: 15461,
+    breakdown: {
+      food: 2561,
+      living: 4596,
+      entertainment: 8084,
+      transport: 220,
+      stay: 0,
+      other: 0,
+    },
+    meta: {
+      days: 31,
+    },
+  },
+  {
+    dateKey: '2019-09',
+    year: 2019,
+    month: 9,
+    total: 6301,
+    breakdown: {
+      food: 2772,
+      living: 1779,
+      entertainment: 450,
+      transport: 1300,
+      stay: 0,
+      other: 0,
+    },
+    meta: {
+      days: 30,
+    },
+  },
+  {
+    dateKey: '2019-10',
+    year: 2019,
+    month: 10,
+    total: 10062,
+    breakdown: {
+      food: 2533,
+      living: 4956,
+      entertainment: 1873,
+      transport: 700,
+      stay: 0,
+      other: 0,
+    },
+    meta: {
+      days: 31,
+    },
+  },
+  {
+    dateKey: '2019-11',
+    year: 2019,
+    month: 11,
+    total: 9348,
+    breakdown: {
+      food: 2639,
+      living: 5759,
+      entertainment: 450,
+      transport: 500,
+      stay: 0,
+      other: 0,
+    },
+    meta: {
+      days: 30,
+    },
+  },
+  {
+    dateKey: '2019-12',
+    year: 2019,
+    month: 12,
+    total: 16817,
+    breakdown: {
+      food: 4651,
+      living: 5993,
+      entertainment: 4944,
+      transport: 1000,
+      stay: 0,
+      other: 0,
+    },
+    meta: {
+      days: 31,
+    },
+  },
+]
