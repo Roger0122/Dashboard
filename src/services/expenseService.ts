@@ -10,5 +10,5 @@ export function getExpensesByDate(dateKey: string) {
 }
 
 export function getExpenseByYear(year: number) {
-  return expenses.filter((e: any) => e.yea === year)
+  return expenses.filter((e: any) => e.year === year)
 }

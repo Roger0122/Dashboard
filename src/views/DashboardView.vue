@@ -1,23 +1,15 @@
 <template>
   <div class="p-6 space-y-6">
     <!-- KPI -->
-     <h1 class="text-2xl font-bold">
-      年份支出計算儀表版
-    </h1>
+    <h1 class="text-2xl font-bold">年份支出計算儀表版</h1>
     <YearFilter />
 
-       <!-- KPI Cards -->
+    <!-- KPI Cards -->
 
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
-      <KpiCard
-        title="總合計支出"
-        :value="formatCurrency(totalExpense)"
-      />
+      <KpiCard title="總合計支出" :value="formatCurrency(totalExpense)" />
 
-      <KpiCard
-        title="每月平均支出"
-        :value="formatCurrency(averageMonthlyExpense)"
-      />
+      <KpiCard title="每月平均支出" :value="formatCurrency(averageMonthlyExpense)" />
 
       <KpiCard
         title="最高月份支出"
@@ -36,7 +28,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
       <ExpenseLineChart></ExpenseLineChart>
 
-      <ExpenseCategoryPieChart ></ExpenseCategoryPieChart>
+      <ExpenseCategoryPieChart></ExpenseCategoryPieChart>
     </div>
 
     <!-- Table -->
@@ -67,19 +59,13 @@ import ExpenseCategoryPieChart from '@/components/charts/ExpenseCategoryPieChart
 import KpiCard from '@/components/dashboard/KpiCard.vue'
 import YearFilter from '@/components/dashboard/YearFilter.vue'
 
-
 import { useExpenseStats } from '@/composables/useExpenseStats'
 import { formatCurrency } from '@/utils/format'
 
-const { totalAll, sortedExpenses, categorySummary } = useExpenses()
+// const { totalAll, sortedExpenses, categorySummary } = useExpenses()
 
-
-const {
-  totalExpense,
-  averageMonthlyExpense,
-  highestExpenseMonth,
-  lowestExpenseMonth
-} = useExpenseStats()
+const { totalExpense, averageMonthlyExpense, highestExpenseMonth, lowestExpenseMonth } =
+  useExpenseStats()
 </script>
 
 <style scoped></style>
